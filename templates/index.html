@@ -1,0 +1,65 @@
+{% extends "bootstrap/base.html" %}
+{% import "_macros.html" as macros %}
+{% block title %}Biubiubiu{% endblock %}
+
+{% block navbar%}
+<div class="navbar navbar-inverse" role="navigation">
+    <div class = "container">
+        <div class = "navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class = "sr-only">Toggle navigation</span>
+                <span class = "icon-bar"></span>
+                <span class = "icon-bar"></span>
+                <span class = "icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href = "/">Biu~</a>
+        </div>
+        <div class = "navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href = "/#/"></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>User Name</th>
+                <th>Host Name</th>
+                <th>IP Address</th>
+                <th>Package</th>
+                <th>Language</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td bgcolor="#FFFFFF">{{user.id}}</td>
+                    <td bgcolor="#FFFFFF">{{user.username}}</td>
+                    <td bgcolor="#FFFFFF">{{user.hostname}}</td>
+                    <td bgcolor="#FFFFFF">{{user.ip}}</td>
+                    <td bgcolor="#FFFFFF">{{user.package}}</td>
+                    <td bgcolor="#FFFFFF">{{user.language}}</td>
+                    <td bgcolor="#FFFFFF">{{user.time}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+
+</div>
+
+<footer class = "bs-docs-footer">
+    <div class="container" id ="footer" align="center">
+        {% if pagination %}
+        <div class="pagination">
+            {{ macros.pagination_widget(pagination,'.index')}}
+        </div>
+        {% endif %}
+    </div>
+</footer>
+{% endblock %}
